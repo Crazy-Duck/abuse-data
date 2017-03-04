@@ -1,0 +1,10 @@
+{
+  "name": "test-bot",
+  "version": "0.0.0",
+  "description": "Test bot that can join a lobby",
+  "main": "index.js",
+  "repository": "",
+  "dependencies": {
+    "request": "^2.79.0"
+  }
+}
