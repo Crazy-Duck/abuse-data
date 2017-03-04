@@ -31,6 +31,7 @@ let inter = setInterval(() => {
             return;
         }
         let matches = result.matches;
+        lastMatch = matches[matches.length-1].match_seq_num + 1;
         matches.filter(match => match.players.filter(p => p.leaver_status == 0).length === 10)
                .map(match => data.write(transformMatch(match) + "\n"));
     });
@@ -43,7 +44,7 @@ setTimeout(() => {
     setTimeout(() => {
         end = true;
     }, 3000);
-}, 60 * 60 * 1000); // Run for 1h
+}, 3 * 60 * 60 * 1000); // Run for 3h
 
 function transformMatch(match) {
     let result = [];
