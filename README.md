@@ -28,7 +28,7 @@ considered as a feature vector. This way each match is represented by a vector o
 ```
 After combining the feature vectors of the learning set in a giant matrix, I calculated its covariance matrix 
 ∑ and mean vector μ. These I could then use to create a model based on which can be decided whether or not a match 
-is an abuse match. This model looks as follows: p(x) = (2π)^(-n / 2) \* |∑|^(-0.5) \* exp(-0.5 \* (x-μ) \* ∑^(-1) * (x-μ)^T 
+is an abuse match. This model looks as follows: p(x) = (2π)^(-n / 2) \* |∑|^(-0.5) \* exp(-0.5 \* (x-μ) \* ∑^(-1) * (x-μ)^T )
 where x is a vector representing a feature vector from the test set. Most of this model only needs to be calculated
 once and the resulting calculations that need to be run for each tested sample are sufficiently fast to be
 able to be calculated in real time. This means you could directly feed the values you receive from the 
