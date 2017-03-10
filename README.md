@@ -48,7 +48,7 @@ they all fall into the following categories:
  
 The latter two categories all have p-values between 10^(-110) and 10^(-100) so while in theory these could be
 filtered out by lowering the cut-off value, this would mean that certain bot matches would slip through. However,
-even though these matches only make out only the minority of these outliers, I only consider the last category
+even though these matches only make out the minority of these outliers, I only consider the last category
 to be real false negatives. By saving the accounts for each suspect match and looking for multiple occurences,
 you can safely assume these last two cases will be eliminated. This would only leave legit bot abuse matches
 and persistent feeders. 
