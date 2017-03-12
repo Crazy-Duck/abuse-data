@@ -8,7 +8,7 @@ lamenting the number of boosters, account-buyers, ... so it seemed worthwhile to
 If a sufficient number of match statistics would follow a Gaussian distribution, it could theoretically 
 be possible to automatically detect outliers by choosing the right cut-off value. As it turns out, 
 there *are* a lot of stats that are distributed normally and applying anomaly detection based on 
-multivariant gaussian distribution works surprisingly well!
+multivariate gaussian distribution works surprisingly well!
 
 Method
 -----
@@ -40,16 +40,17 @@ By analyzing the p-values obtained by running the model for each one of the feat
 it seems that the majority of the matches (about 90%) have a value that lies between 10^(-80) and 10^(-60),
 with outliers between 0 and 10^(-100). Based on this I decided to put my cut-off value at 10^(-100) and only
 consider games which produced a p-value < 10^(-100). Looking at the games having these values (about 700 samples),
-they all fall into the following categories:
-* [5 bots stomping 5 other bots](https://www.opendota.com/matches/3043951952)
-* [4 bots on each team feeding of the 5th bot on the other team](https://www.opendota.com/matches/3043885716)
-* [Excessive feeders of the type "lemme just run down mid"](https://www.opendota.com/matches/3043900942)
-* [70+ min games with excessive amounts of kills](https://www.opendota.com/matches/3043854548)
+they all fall into the following categories:  
+
+* [5 bots stomping 5 other bots](https://www.opendota.com/matches/3043951952)  
+* [4 bots on each team feeding of the 5th bot on the other team](https://www.opendota.com/matches/3043885716)  
+* [Excessive feeders of the type "lemme just run down mid"](https://www.opendota.com/matches/3043900942)  
+* [70+ min games with excessive amounts of kills](https://www.opendota.com/matches/3043854548)  
  
 The latter two categories all have p-values between 10^(-110) and 10^(-100) so while in theory these could be
 filtered out by lowering the cut-off value, this would mean that certain bot matches would slip through. However,
 even though these matches only make out the minority of these outliers, I only consider the last category
-to be real false negatives. By saving the accounts for each suspect match and looking for multiple occurences,
+to be real false positives. By saving the accounts for each suspect match and looking for multiple occurences,
 you can safely assume these last two cases will be eliminated. This would only leave legit bot abuse matches
 and persistent feeders. 
 
